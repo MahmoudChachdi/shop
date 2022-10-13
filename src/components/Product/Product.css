@@ -1,0 +1,28 @@
+.product-box{
+	width: 90%;
+	height: auto;
+	display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+.image-box{
+	width: 50%;
+	height: 50%;
+	border-radius: 30px;
+    padding: .8em;
+    margin-bottom: .9em;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+
+}
+.info-box{
+	width: 50%;
+	height: 50%;
+	border-radius: 30px;
+	padding: .8em;
+	margin-bottom: .9em;
+	background: #e0e0e0;
+	box-shadow: 15px 15px 30px #bebebe,
+	             -15px -15px 30px #ffffff;
+}

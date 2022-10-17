@@ -2,10 +2,12 @@ import React from 'react';
 import './Button.css';
 
 
-export default function Button (){
+const Button = (props) => {
 return(
 
-	<button class="btn"> Button
+	<button class="btn"> {props.button}
 	</button>
 )
 }
+
+export default Button;

@@ -1,11 +1,19 @@
 import React from 'react';
+
 import { Outlet, Link } from "react-router-dom";
+
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import LOGO from './LOGO.png';
 
 import './Nav.css';
  
-const Navbar = () => {
+const Navbar = ({cart}) => {
+
+
+
+
   return(
 <>
 <nav className=" font background dt w-100 border-box  ph5-ns shadow-3">
@@ -23,7 +31,14 @@ const Navbar = () => {
             </Link>
           
   </div>
-
+  <div className='dtc v-mid w-75 tr'>
+   <Link to="cart" > 
+      <button>
+        <FontAwesomeIcon icon={faCartArrowDown} />
+        <span className="">{cart.total_items}</span>
+      </button>
+    </Link>
+    </div>
 </nav>
 <Outlet /> 
  </>   

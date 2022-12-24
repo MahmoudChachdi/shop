@@ -1,81 +1,81 @@
-import React, {Component} from 'react';
+import React from 'react';
+import  { useEffect, useState } from 'react';
+import { commerce } from './lib/Commerce';
 import {BrowserRouter as Router,
         Routes,
         Route
       } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './App.css';
-import Home from './components/Home/Home.js';
+
 import Nav from './components/Nav/Nav.js';
-
+import ProductList from './components/ProductList/ProductList.js';
+import ProductPage from './components/ProductPage/ProductPage.js';
 import NoPage from './components/Nopage/Nopage.js';
-import Product from './components/Product/Product.js';
-
-const initialState= {
-   
-    user: {
-      id: '',
-      firstname: '',
-      lastname: '',
-      email:'',
-      mobilenumber:'',
-      adress:'',
-      city: '',
-      size:'',
-      quantity: '',
-      joined:''
-    }
 
 
-  }
 
 
-class App extends Component {
- constructor(){
-  super();
-  this.state= initialState;
+
+
+export default function App() {
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState({});
+  
+
+ useEffect(() => {
+  fetchProducts();
+  fetchCart();
+ 
+}, []);
+
+  const fetchProducts = async () => {
+    const { data } = await commerce.products.list();
+
+    setProducts(data);
+  };
+  const fetchCart = () => {
+  commerce.cart.retrieve().then((cart) => {
+    setCart(cart);
+  }).catch((error) => {
+    console.log('There was an error fetching the cart', error);
+  });
 }
-   
-
-    loadUser = (data) => {
-  this.setState( {user:
-      {       
-        id: data.id,
-      firstname: data.firstname,
-      lastname:data.lastname ,
-      email:data.email,
-      mobilenumber:data.mobilenumber,
-      adress:data.adress,
-      city: data.city,
-      size:data.size,
-      quantity: data.quantity,
-      joined:data.joined
-        }})
+const handleAddToCart = (productId, quantity) => {
+  commerce.cart.add(productId, quantity).then((item) => {
+    setCart(item.cart);
+  }).catch((error) => {
+    console.error('There was an error adding the item to the cart', error);
+  });
 }
-
-
-render() {
+  
+console.log(products)
+  
   return (
     
      <>
+    
   <Router>
       <Routes>
-        <Route path="/" element={<Nav /> }>
-        <Route index element={<Home />} />
+        <Route path="/" element={<Nav  cart={cart}/> }>
+        <Route index element={<ProductList  products={products} onAddToCart={handleAddToCart}  />} />
         <Route path="order"> 
-          <Route index element={<Product  loadUser={this.loadUser}/>} />
+          <Route index element={<ProductPage  />} />
          {/* <Route path="orderCompleted" element={<OrderCompleted />} />*/}
         </Route>
       
-         {/* <Route path="collab" element={<Collab />} />
-          <Route path="art" element={<Art />} />*/}
+          
+          {/*<Route path="art" element={<Art />} />*/}
          
           <Route path="*" element={<NoPage />}  />
          </Route>
       </Routes>
     </Router>
-
+   
 </>
-    );
+    )
 }
-}
-export default App;
+
+App.propTypes = {
+  history: PropTypes.object,
+};

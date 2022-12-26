@@ -10,6 +10,7 @@ import './App.css';
 
 import Nav from './components/Nav/Nav.js';
 import ProductList from './components/ProductList/ProductList.js';
+import Cart from './components/Cart/Cart.js';
 import ProductPage from './components/ProductPage/ProductPage.js';
 import NoPage from './components/Nopage/Nopage.js';
 
@@ -49,6 +50,27 @@ const handleAddToCart = (productId, quantity) => {
   });
 }
   
+  const handleUpdateCartQty = (lineItemId, quantity) => {
+  commerce.cart.update(lineItemId, { quantity }).then((resp) => {
+    setCart(resp.cart);
+  }).catch((error) => {
+    console.log('There was an error updating the cart items', error);
+  });
+}
+const handleRemoveFromCart = (lineItemId) => {
+  commerce.cart.remove(lineItemId).then((resp) => {
+    setCart(resp.cart);
+  }).catch((error) => {
+    console.error('There was an error removing the item from the cart', error);
+  });
+}
+const handleEmptyCart = () => {
+  commerce.cart.empty().then((resp) => {
+    setCart(resp.cart);
+  }).catch((error) => {
+    console.error('There was an error emptying the cart', error);
+  });
+}
 console.log(products)
   
   return (
@@ -65,7 +87,10 @@ console.log(products)
         </Route>
       
           
-          {/*<Route path="art" element={<Art />} />*/}
+          {<Route path="cart" element={<Cart cart={cart}
+                                              onUpdateCartQty={handleUpdateCartQty}
+                                             onRemoveFromCart={handleRemoveFromCart} 
+                                             onEmptyCart={handleEmptyCart}/>} />}
          
           <Route path="*" element={<NoPage />}  />
          </Route>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link , useLocation } from "react-router-dom";
 
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,7 @@ import './Nav.css';
 const Navbar = ({cart}) => {
 
 
-
+ const location = useLocation();
 
   return(
 <>
@@ -31,6 +31,7 @@ const Navbar = ({cart}) => {
             </Link>
           
   </div>
+  {location.pathname === '/' && (
   <div className='dtc v-mid w-75 tr'>
    <Link to="cart" > 
       <button>
@@ -39,6 +40,7 @@ const Navbar = ({cart}) => {
       </button>
     </Link>
     </div>
+    )}
 </nav>
 <Outlet /> 
  </>   

@@ -36,7 +36,7 @@ const Navbar = ({cart}) => {
    <Link to="cart" > 
       <button>
         <FontAwesomeIcon icon={faCartArrowDown} />
-        <span className="">{cart.total_items}</span>
+        <span className="">{cart}</span>
       </button>
     </Link>
     </div>

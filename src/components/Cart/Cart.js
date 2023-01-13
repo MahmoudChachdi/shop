@@ -1,5 +1,7 @@
 import React from 'react';
 import CartItem from '../CartItem/CartItem.js';
+
+import {Link} from 'react-router-dom';
 import './Cart.css';
 import PropTypes from 'prop-types';
 const Cart = ({ cart , onUpdateCartQty , onRemoveFromCart , onEmptyCart }) => {
@@ -50,7 +52,7 @@ console.log(cart)
      
       <div className="cart__footer">
         <button className="cart__btn-empty" onClick={handleEmptyCart} >Empty cart</button>
-        <button className="cart__btn-checkout">Checkout</button> 
+        <Link to='checkout'><button className="cart__btn-checkout" >Checkout</button></Link> 
       </div>
     </div>
   );

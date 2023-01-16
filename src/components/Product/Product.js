@@ -24,7 +24,7 @@ const  Product = ({product, onAddToCart}) => {
 			  </div>
 			  
 			  <div className="card-info">
-			    <div className="text-title ">{product.title} </div>
+			    <div className="text-title ">{product.name} </div>
 			    <div className="text-body ">{result}</div>
 			  </div>
 			  

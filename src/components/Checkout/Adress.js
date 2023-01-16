@@ -55,9 +55,9 @@ const fetchShippingCountries = async (checkoutTokenId) => {
     if (shippingSubdivision) fetchShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
   }, [shippingSubdivision]);
  
-if (!Object.keys(countries)[0]) return <p>Loading...</p>;
+
   return(
-  <div className="container  center">
+  
     <div className="container2  center">
       
       <div className="content mt4">
@@ -159,7 +159,8 @@ if (!Object.keys(countries)[0]) return <p>Loading...</p>;
             
             
             </div>
-            <Link to="/cart"><button className='mt3' type="button" >
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Link to="/cart"><button className='mt3 ' type="button" >
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Back To Cart 
@@ -171,12 +172,13 @@ if (!Object.keys(countries)[0]) return <p>Loading...</p>;
               <span class="front text"> Next 
               </span>
             </button>
+            </div>
         
 
       </form>
     </div>
     </div>
-  </div>
+  
 )
 }
 

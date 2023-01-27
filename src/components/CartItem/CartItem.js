@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CartItem.css';
+import close from './close.svg';
+import add from './add.svg';
+import remove from './remove.svg';
 
 const CartItem = ({ item , onRemoveFromCart , onUpdateCartQty }) => {
 
@@ -13,26 +16,29 @@ const handleRemoveFromCart = () => {
 }
   return (
     <div className=" center">
-        <div className="card">
+        <div className="card1">
+        
         <div className="card-img" >
-          <img className="br4" src={item.image.url} alt={item.name} />
+          <img className="image" src={item.image.url} alt={item.name} />
           </div>
           <div className="card-info">
             <h4 className="text-title">{item.name}</h4>
-            <div className="cart-item__details-qty">
-                <button type="button" onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}>-</button>
-                <p>{item.quantity}</p>
-                <button type="button" onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}>+</button>
+            <div className="total-price">{item.line_total.formatted_with_symbol}</div>
             </div>
-            <div className="cart-item__details-price">{item.line_total.formatted_with_symbol}</div>
-          </div>
-          <button
-            type="button"
-            className="cart-item__remove"
-            onClick={handleRemoveFromCart}
-          >
-            Remove
-          </button>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }} className="  card-footer">
+               <div className='card-button'><img className="svg1 " src={remove} alt='close'  onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)} /></div>
+                <p className=" quantity">{item.quantity}</p>
+                <div className='card-button'><img className="svg1 " src={add} alt='close' onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)} /></div>
+              <div className="card-button " >
+                    <img    className="svg1  "
+                            onClick={handleRemoveFromCart}src={close} alt='close' />
+        </div>
+            </div>
+          
+
+
+         
+          
         </div>
         </div>
   );
@@ -43,5 +49,8 @@ CartItem.propTypes = {
 };
 
 export default CartItem;
+
+
+
 
 

@@ -57,10 +57,10 @@ const fetchShippingCountries = async (checkoutTokenId) => {
  
 
   return(
-  
+   <div className=" center" style={{ backgroundColor: '#e8e8e8' }}>
     <div className="container2  center">
       
-      <div className="content mt4">
+      <div className="content  ">
         <form action="#" >
           <div className="user-details">
               <div className="input-box">
@@ -160,13 +160,13 @@ const fetchShippingCountries = async (checkoutTokenId) => {
             
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Link to="/cart"><button className='mt3 ' type="button" >
+            <Link to="/cart"><button className='cart__btn-empty1 ' type="button" >
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Back To Cart 
               </span>
             </button></Link>
-             <button className='mt3' type="submit" onClick={()=>test({firstName, lastName, email, mobileNumber, adress, city, zip, shippingCountry, shippingSubdivision, shippingOption})} >
+             <button className='cart__btn-empty1' type="submit" onClick={()=>test({firstName, lastName, email, mobileNumber, adress, city, zip, shippingCountry, shippingSubdivision, shippingOption})} >
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Next 
@@ -176,6 +176,7 @@ const fetchShippingCountries = async (checkoutTokenId) => {
         
 
       </form>
+    </div>
     </div>
     </div>
   

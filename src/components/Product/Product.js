@@ -20,7 +20,7 @@ const  Product = ({product, onAddToCart}) => {
 	<div className="card">
  
 			  <div className="card-img" >
-			  	<img className='br4' alt='robots' src={product.image?.url}/>
+			  	<img className='image' alt='robots' src={product.image?.url}/>
 			  </div>
 			  
 			  <div className="card-info">

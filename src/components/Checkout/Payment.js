@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Checkout.css';
 import { Link} from 'react-router-dom';
 
-
+import Review from './Review';
 
 const Payment = ({checkoutToken, nextStep, backStep, shippingData, onCaptureCheckout })=> {
 const [creditCardNumber,setCreditCardNumber] = useState('');
@@ -42,42 +42,58 @@ const handleSubmit = async (event) => {
 
 return(
 
-  <div className="container  center">
-    <div className="container2  center">
-      <div className="title">Order</div>
+ <div className=" center" style={{ backgroundColor: '#e8e8e8'}}>
+       
+     
+    <div className="container2  center" style={{ display:'flex', flexDirection: 'column' }}>
+    <Review checkoutToken={checkoutToken} />
+      <h4 className="title">Payment information</h4>
       <div className="content mt4">
         <form  onSubmit={(e) => handleSubmit(e)}>
-          <h4 className="checkout__subheading">Payment information</h4>
-
-                <label className="checkout__label" htmlFor="cardNum">Credit card number</label>
+        <div className="user-details">
+          
+            <div className="input-box">
+                <span className="details" htmlFor="cardNum">Credit card number</span>
                 <input className="checkout__input" type="text" name="cardNum" onChange={event => setCreditCardNumber(event.target.value)}value={creditCardNumber} placeholder="Enter your card number" />
-
-                <label className="checkout__label" htmlFor="expMonth">Expiry month</label>
+                   </div>
+                               <div className="input-box" >
+                <span className="details" htmlFor="cardNum">Card holder</span>
+                <input className="checkout__input" type="text" name="cardNum" onChange={event => setCreditCardNumber(event.target.value)}value={creditCardNumber} placeholder="Enter your card number" />
+                   </div>
+                    <div className="input-box" style={{ width:'100%' ,display:'flex', justifyContent:'space-around'}}>
+                    <div className="input-box"  style={{paddingRight:'1%'}}>
+                <span className="details" htmlFor="expMonth">Expiry month</span>
                 <input className="checkout__input" type="text" name="expMonth" onChange={event => setExpiryMonth(event.target.value)} value={expiryMonth} placeholder="Card expiry month" />
-
-                <label className="checkout__label" htmlFor="expYear">Expiry year</label>
+                  </div>
+                  <div className="input-box" style={{paddingRight:'1%'}}>
+                <span className="details" htmlFor="expYear">Expiry year</span>
                 <input className="checkout__input" type="text" name="expYear" onChange={event => setExpiryYear(event.target.value)} value={expiryYear} placeholder="Card expiry year" />
-
-                <label className="checkout__label" htmlFor="ccv">CCV</label>
+                  </div>
+                  <div className="input-box">
+                <span className="details" htmlFor="ccv">CCV</span>
                 <input className="checkout__input" type="text" name="ccv" onChange={event => setCcv(event.target.value)} value={ccv} placeholder="CCV (3 digits)" />
+                 </div>
+                  </div>
+                   </div>
 
 
             
             
             
-            
-            <button className='mt3' type="button" component={Link}  to="/cart">
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <button className='cart__btn-empty1' type="button" component={Link}  to="/cart">
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Back 
               </span>
             </button>
-             <button className='mt3' type="submit" component={Link}  to="/Payment">
+             <button className='cart__btn-empty1' type="submit" component={Link}  to="/Payment">
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Pay {checkoutToken.live.subtotal.formatted_with_symbol}
               </span>
             </button>
+            </div>
         
 
       </form>

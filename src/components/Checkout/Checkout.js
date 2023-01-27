@@ -94,10 +94,10 @@ const [checkoutToken, setCheckoutToken] = useState(null);
     <>
       <CssBaseline />
       <div />
-      <main  className='stepper'>
-        <Paper className='stepper'>
+      <main   className='stepper'>
+        <Paper style={{ backgroundColor: '#e8e8e8', height:'100%' }} className='stepper'>
           <Typography variant="h4" align="center">Checkout</Typography>
-          <Stepper   className='stepper' activeStep={activeStep} >
+          <Stepper style={{ display: 'none' }}   className='stepper ' activeStep={activeStep} >
             {steps.map((label) => (
               <Step  className='stepper' key={label}>
                 <StepLabel  className='stepper' >{label}</StepLabel>

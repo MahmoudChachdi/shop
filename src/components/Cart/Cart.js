@@ -24,7 +24,7 @@ const Cart = ({ cart , onUpdateCartQty , onRemoveFromCart , onEmptyCart }) => {
 console.log(cart)
   const renderItems = () => (
     <>
-    <div className="center box">
+    <div className="center ">
     {cart.line_items.map((lineItem) => (
       <CartItem
         item={lineItem}
@@ -35,9 +35,9 @@ console.log(cart)
       />
     ))}
     </div>
-    <div className="cart__total">
-      <p className="cart__total-title">Subtotal:</p>
-      <p className="cart__total-price">{cart.subtotal.formatted_with_symbol}</p>
+    <div className="cart__footer">
+      <h4 className="cart__total-title">Subtotal:</h4>
+      <h4 className="cart__total-price">{cart.subtotal.formatted_with_symbol}</h4>
     </div>
     </>
   );
@@ -45,14 +45,14 @@ console.log(cart)
 
 
   return (
-    <div className="cart">
-      <h4 className="cart__heading">Your Shopping Cart</h4>
+    <div className="cart1">
+      <h2 className="center title ">Your Shopping Cart</h2>
       { renderEmptyMessage() }
       { renderItems() }
      
-      <div className="cart__footer">
-        <button className="cart__btn-empty" onClick={handleEmptyCart} >Empty cart</button>
-        <Link to='checkout'><button className="cart__btn-checkout" >Checkout</button></Link> 
+      <div style={{ display: 'flex', justifyContent: 'space-between' }} className="cart__footer">
+        <button className="cart__btn-empty1" onClick={handleEmptyCart} >Empty cart</button>
+        <Link to='checkout'><button className="cart__btn-empty1" >Checkout</button></Link> 
       </div>
     </div>
   );

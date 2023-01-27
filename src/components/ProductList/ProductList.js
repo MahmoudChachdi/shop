@@ -7,7 +7,9 @@ import Product from '../Product/Product.js';
 
 const ProductList = ({products, onAddToCart})=>{
 
-	if (!products.length) return <p>Loading...</p>;
+	if (!products.length) return <div className='center mt7' > <div   id="myProgress">
+  <div  id="myBar"></div>
+</div></div>
 return(
 <>
 <div className="center box">

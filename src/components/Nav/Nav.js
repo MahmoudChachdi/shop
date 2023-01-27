@@ -16,10 +16,10 @@ const Navbar = ({cart}) => {
 
   return(
 <>
-<nav className=" font background dt w-100 border-box  ph5-ns shadow-3">
-  <div  style={{paddingTop: '0px'}} className='ma2 mt2  ph3 '>
+<nav className=" font background  "style={{ display: 'flex', justifyContent: 'space-between'}} >
+  <div  style={{paddingTop: '0px'}} className='logo  '>
          <Link to="/" > 
-          <div className="Tilt r2 shadow-2 " options={{ max : 55 }} style={{ height: 50, width: 50 }} >
+          <div className="Tilt r2 center " options={{ max : 55 }} style={{ height: 50, width: 50 }} >
               <div className="Tilt-inner pa1" > 
                 <img
                               src={LOGO}
@@ -32,9 +32,9 @@ const Navbar = ({cart}) => {
           
   </div>
   {location.pathname === '/' && (
-  <div className='dtc v-mid w-75 tr'>
+  <div className='cart'>
    <Link to="cart" > 
-      <button>
+      <button className='cart__btn-empty2'>
         <FontAwesomeIcon icon={faCartArrowDown} />
         <span className="">{cart}</span>
       </button>

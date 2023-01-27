@@ -32,9 +32,9 @@
 
 .card {
  width: 13rem;
- height: 19rem;
+ height: 17rem;
  border-radius: 30px;
- padding: .8em;
+ padding: 1em;
  margin-bottom: .9em;
  background: #e0e0e0;
  box-shadow: 15px 15px 30px #bebebe,
@@ -50,9 +50,13 @@ cursor: pointer;
  
  transition: .3s ease;
 }
+.image{
+   height: 100%;
+ width: 100%; 
+}
 
 .card .card-info {
- padding-top: 10%;
+ padding-top: 5%;
 }
 
 svg {
@@ -65,7 +69,8 @@ svg {
  display: flex;
  justify-content: space-between;
  align-items: center;
- padding-top: 0px;
+
+
  
 }
 

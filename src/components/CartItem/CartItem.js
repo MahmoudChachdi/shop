@@ -15,7 +15,7 @@ const handleRemoveFromCart = () => {
   onRemoveFromCart(item.id);
 }
   return (
-    <div className=" center">
+    <div className=" center ">
         <div className="card1">
         
         <div className="card-img" >

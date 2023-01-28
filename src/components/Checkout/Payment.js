@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './Checkout.css';
 import { Link} from 'react-router-dom';
+import { Divider} from '@mui/material';
 
 import Review from './Review';
 
@@ -47,6 +48,7 @@ return(
      
     <div className="container2  center" style={{ display:'flex', flexDirection: 'column' }}>
     <Review checkoutToken={checkoutToken} />
+    
       <h4 className="title">Payment information</h4>
       <div className="content mt4">
         <form  onSubmit={(e) => handleSubmit(e)}>
@@ -62,11 +64,11 @@ return(
                    </div>
                     <div className="input-box" style={{ width:'100%' ,display:'flex', justifyContent:'space-around'}}>
                     <div className="input-box"  style={{paddingRight:'1%'}}>
-                <span className="details" htmlFor="expMonth">Expiry month</span>
+                <span className="details" htmlFor="expMonth">Ex/month</span>
                 <input className="checkout__input" type="text" name="expMonth" onChange={event => setExpiryMonth(event.target.value)} value={expiryMonth} placeholder="Card expiry month" />
                   </div>
                   <div className="input-box" style={{paddingRight:'1%'}}>
-                <span className="details" htmlFor="expYear">Expiry year</span>
+                <span className="details" htmlFor="expYear">Ex/year</span>
                 <input className="checkout__input" type="text" name="expYear" onChange={event => setExpiryYear(event.target.value)} value={expiryYear} placeholder="Card expiry year" />
                   </div>
                   <div className="input-box">
@@ -81,13 +83,15 @@ return(
             
             
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <button className='cart__btn-empty1' type="button" component={Link}  to="/cart">
+           
+            <button className='cart__btn-empty1'  onClick={backStep} type="button" >
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Back 
               </span>
             </button>
-             <button className='cart__btn-empty1' type="submit" component={Link}  to="/Payment">
+            
+             <button className='cart__btn-empty1' type="submit" >
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Pay {checkoutToken.live.subtotal.formatted_with_symbol}

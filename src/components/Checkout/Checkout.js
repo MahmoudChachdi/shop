@@ -80,7 +80,7 @@ const [checkoutToken, setCheckoutToken] = useState(null);
       <>
         <Typography variant="h5">Error: {error}</Typography>
         <br />
-        <Link to='/'><Button  variant="outlined" type="button" >Back to home</Button></Link>
+        <Link to='/'><button  className="cart__btn-empty1"type="button" >Back to home</button></Link>
       </>
     );
   }

@@ -29,7 +29,7 @@
 #myBar {
   width: 10%;
   height: 30px;
-  background: rgba(0, 209, 0, 0.35);
+  background: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
   border-radius: 28px;
   text-align: center;
   line-height: 30px;

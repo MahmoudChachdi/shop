@@ -7,19 +7,19 @@ const NoPage = () => {
 	return(
 	
 
-<section class="vh-100 white baskerville">
-  <header class="tc ph5 lh-copy">
-      <h1 class="f1 f-headline-l code mb3 fw9 dib tracked-tight ">404</h1>
-      <h2 class="tc  f1-l fw1">Sorry, we can't find the page you are looking for.</h2>
+<section className="vh-100 white baskerville">
+  <header className="tc ph5 lh-copy">
+      <h1 className="center ">404</h1>
+      <h2 className="center">Sorry, we can't find the page you are looking for.</h2>
   </header>
   
-  <ul class="list tc pl0 w-100 mt5">
-<div className='center' >
+  <ul className="list tc pl0 w-100 mt5" style={{paddingLeft:'0'}}>
+<div className='center'  >
        <Link to="/" >
-        <button type="button" >
-          <span class="shadow"></span>
-          <span class="edge"></span>
-          <span class="front text"> BACK HOME</span>
+        <button type="button"  className='cart__btn-empty1' >
+          <span className="shadow"></span>
+          <span className="edge"></span>
+          <span className="front text"> BACK HOME</span>
         </button>
        </Link>
        </div>

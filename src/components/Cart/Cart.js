@@ -24,7 +24,7 @@ const Cart = ({ cart , onUpdateCartQty , onRemoveFromCart , onEmptyCart }) => {
 console.log(cart)
   const renderItems = () => (
     <>
-    <div className="center ">
+    <div className="center box ">
     {cart.line_items.map((lineItem) => (
       <CartItem
         item={lineItem}
